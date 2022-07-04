@@ -46,5 +46,10 @@
 //   return n * fctr(n - 1);
 // }
 // console.log(fctr(0));
-// console.log(fctr(1));
-// console.log(fctr(5));
+function fctr(n) {
+  if (n === 0) {
+    return 1;
+  }
+
+  return n * fctr(n - 1);
+}
