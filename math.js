@@ -46,10 +46,13 @@
 //   return n * fctr(n - 1);
 // }
 // console.log(fctr(0));
-function fctr(n) {
-  if (n === 0) {
-    return 1;
+// RECURSION FIBONACCI
+function recursiveFibonacci(n) {
+  if (n < 2) {
+    return n;
   }
-
-  return n * fctr(n - 1);
+  return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
 }
+console.log(recursiveFibonacci(0));
+console.log(recursiveFibonacci(1));
+console.log(recursiveFibonacci(6));
