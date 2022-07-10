@@ -57,5 +57,67 @@ function bubbleSort(arr){
     } while(swapped)
 }
 const ttt = [-8,4,3,8,6,7,9,2]
-bubbleSort(ttt)
-console.log(ttt)
+// bubbleSort(ttt)
+// console.log(ttt)
+
+//INSERTION SORT
+
+function insertSort(arr) {
+    for( let i = 1; i< arr.length; i++){
+        let numberToInsert = arr[i]
+        let j = i-1
+        while(j >= 0 && arr[j] > numberToInsert){
+            arr[j+1] = arr[j]
+            j = j - 1
+        }
+        arr[j+1] = numberToInsert
+    }
+}
+const insarr = [-6, 20, 8,-2,4 ]
+//  insertSort(insarr)
+// console.log(insarr)
+
+//QUICKSORT
+function quickSort(arr){
+    if(arr.length < 2) {
+        return arr
+    }
+    let pivot = arr[arr.length-1]
+    let left = []
+    let right = []
+    for (let i = 0; i < arr.length-1; i++) {
+        if(arr[i] < pivot) {
+            left.push(arr[i])
+        } else {
+            right.push(arr[i])
+        }
+    }
+    return [...quickSort(left), pivot, ...quickSort(right)]
+}
+const  unsorted = [-4,-5,82,9,3,7,1,5,2,8, -1]
+
+// console.log(quickSort( unsorted))
+
+//MERGESORT
+function mergeSort(arr) {
+    if(arr.length <2) {
+        return arr
+    }
+    const mid = Math.floor(arr.length/2)
+    const leftArr = arr.slice(0, mid)
+    const rightArr = arr.slice(mid)
+    return merge(mergeSort(leftArr), mergeSort(rightArr))
+}
+function merge(leftArr, rightArr) {
+    const sortedArr = []
+    while(leftArr.length && rightArr.length){
+        if(leftArr[0] < rightArr[0]){
+            sortedArr.push(leftArr.shift())
+        } else {
+            sortedArr.push(rightArr.shift())
+        }
+    }
+    return [...sortedArr, ...leftArr, ...rightArr]
+}
+
+console.log(mergeSort(unsorted))
