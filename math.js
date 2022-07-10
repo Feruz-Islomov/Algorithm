@@ -37,31 +37,4 @@
 // console.log(recursiveFibonacci(1));
 // console.log(recursiveFibonacci(6));
 //////////////////////////////////////////
-// 5 RECURSION FACTORIAL
-// function fctr(n) {
-//   if (n === 0) {
-//     return 1;
-//   }
-
-//   return n * fctr(n - 1);
-// }
-// console.log(fctr(0));
-// RECURSION FIBONACCI
-function recursiveFibonacci(n) {
-  if (n < 2) {
-    return n;
-  }
-  return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
-}
-console.log(recursiveFibonacci(0));
-console.log(recursiveFibonacci(1));
-console.log(recursiveFibonacci(6));
-function recursiveFibonaccii(n) {
-  if (n < 2) {
-    return n;
-  }
-  return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
-}
-console.log(recursiveFibonacci(0));
-console.log(recursiveFibonacci(1));
-console.log(recursiveFibonacci(6));
+ 
