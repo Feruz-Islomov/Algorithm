@@ -4,7 +4,7 @@
   "description": "",
   "main": "math.js",
   "scripts": {
-    "start": "nodemon builtins.js"
+    "start": "nodemon customds.js"
   },
   "author": "",
   "license": "ISC",
