@@ -250,31 +250,3 @@ console.log(linkedlist.print());
 linkedlist.removeValue(30);
 console.log(linkedlist.print());
 console.log(linkedlist.search(40));
-
-//empty
-// prepend(1){
-//   const node = {this.value = 1, this.next = null}
-//   this.head = {this.value = 1, this.next = null}
-// }
-
-// natijada {this.head = {this.value = 1, this.next = null}, this.size = 1 }
-
-/////////////////////////////////////////////////////////////////////////////////
-
-//not empty
-// prepend(2){
-//    const node = {this.value = 2, this.next = null}
-//    node.next =  {this.value = 1, this.next = null} this.head
-//    this.head =  {this.value = 2, this.next = null} node
-// }
-
-// cosnt list = {
-//   this.head = {
-//                this.value = 2,
-//                this.next = {
-//                             this.value = 1,
-//                             this.next = null
-//                            }
-//               },
-//   this.size = 2
-// }
