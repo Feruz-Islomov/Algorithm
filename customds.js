@@ -234,6 +234,15 @@ class LinkedList {
     }
     console.log(listValues);
   }
+  printt() {
+    let current = this.head;
+    let listValues = "";
+    while (current) {
+      listValues += `${current.value} `;
+      current = current.next;
+    }
+    console.log(listValues);
+  }
 }
 
 const linkedlist = new LinkedList();
