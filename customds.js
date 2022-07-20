@@ -225,16 +225,18 @@ class LinkedList {
     }
     return -1;
   }
-  print() {
-    let current = this.head;
-    let listValues = "";
-    while (current) {
-      listValues += `${current.value} `;
-      current = current.next;
+  reverse() {
+    let prev = null;
+    let cur = this.head;
+    while (cur) {
+      let next = cur.next;
+      cur.next = prev;
+      prev = cur;
+      cur = next;
     }
-    console.log(listValues);
+    this.head = prev;
   }
-  printt() {
+  print() {
     let current = this.head;
     let listValues = "";
     while (current) {
@@ -259,3 +261,5 @@ console.log(linkedlist.print());
 linkedlist.removeValue(30);
 console.log(linkedlist.print());
 console.log(linkedlist.search(40));
+console.log(linkedlist.reverse());
+console.log(linkedlist.print());
