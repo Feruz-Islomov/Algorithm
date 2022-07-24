@@ -1,4 +1,5 @@
 const LinkedList = require("./linkedList");
+const HashTable = require("./hashtable");
 
 class LinkedlistStack {
   constructor() {
@@ -25,7 +26,6 @@ class LinkedlistStack {
     return this.list.print();
   }
 }
-
 // const stack = new LinkedlistStack();
 // console.log(stack.isEmpty());
 // stack.push(20);
@@ -61,15 +61,15 @@ class LinkedListQueue {
   }
 }
 
-const queue = new LinkedListQueue();
-console.log(queue.isEmpty());
-queue.enqueue(20);
-queue.enqueue(30);
-queue.enqueue(40);
-console.log(queue.getSize());
-queue.print();
+// const queue = new LinkedListQueue();
+// console.log(queue.isEmpty());
+// queue.enqueue(20);
+// queue.enqueue(30);
+// queue.enqueue(40);
+// console.log(queue.getSize());
+// queue.print();
 
-console.log(queue.dequeue());
-queue.print();
+// console.log(queue.dequeue());
+// queue.print();
 
-console.log(queue.peek());
+// console.log(queue.peek());
