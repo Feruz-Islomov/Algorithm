@@ -1,5 +1,4 @@
 const LinkedList = require("./linkedList");
-const HashTable = require("./hashtable");
 
 class LinkedlistStack {
   constructor() {
