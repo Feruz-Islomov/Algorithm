@@ -72,15 +72,19 @@ class BinarySearchTree {
   }
 }
 
-const bst = new BinarySearchTree();
-bst.insert(10);
-bst.insert(5);
-bst.insert(15);
-bst.insert(3);
-bst.insert(7);
+// const bst = new BinarySearchTree();
+// bst.insert(10);
+// bst.insert(5);
+// bst.insert(15);
+// bst.insert(3);
+// bst.insert(7);
 
-console.log(bst.search(bst.root, 7));
-console.log(bst.search(bst.root, 8));
-console.log(bst.search(bst.root, 1));
+// console.log(bst.search(bst.root, 7));
+// console.log(bst.search(bst.root, 8));
+// console.log(bst.search(bst.root, 1));
 
-bst.postOrder(bst.root);
+// bst.postOrder(bst.root);
+
+class BreadthSaerchTree {
+  constructor() {}
+}
