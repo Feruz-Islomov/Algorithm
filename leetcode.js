@@ -121,7 +121,92 @@ var addTwoNumbers = function (l1, l2) {
 };
 // const l1 = [2, 4, 3];
 // const l2 = [5, 6, 4];
-const l1 = [9, 9, 9, 9, 9, 9, 9];
-const l2 = [9, 9, 9, 9];
-result = [7, 0, 8];
-console.log(addTwoNumbers(l1, l2));
+// const l1 = [9, 9, 9, 9, 9, 9, 9];
+// const l2 = [9, 9, 9, 9];
+// result = [7, 0, 8];
+// console.log(addTwoNumbers(l1, l2));
+
+//3////////////////////////////////////
+function median(x, y) {
+  const q = x.concat(y);
+
+  const f = quickSort(q);
+
+  if (f.length === 1) {
+    return f[0];
+  }
+  if (f.length % 2 !== 0) {
+    const t = Math.ceil(f.length / 2) - 1;
+    return f[t];
+  } else {
+    const m = f.length / 2 - 1;
+    const r = (f[m] + f[m + 1]) / 2;
+    return r;
+  }
+}
+function quickSort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+  let pivot = arr[arr.length - 1];
+  let left = [];
+  let right = [];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+// const m1 = [3];
+// const m2 = [-2, -1];
+// console.log(median(m1, m2));
+
+// Runtime: 535 ms, faster than 5% of JavaScript online submissions for Median of Two Sorted Arrays.
+// Memory Usage: 116.5 MB, less than 5% of JavaScript online submissions for Median of Two Sorted Arrays.
+var findMedianSortedArrays = function (x, y) {
+  const q = x.concat(y);
+
+  const f = mergeSort(q);
+
+  if (f.length === 1) {
+    return f[0];
+  }
+  if (f.length % 2 !== 0) {
+    const t = Math.ceil(f.length / 2) - 1;
+    return f[t];
+  } else {
+    const m = f.length / 2 - 1;
+    const r = (f[m] + f[m + 1]) / 2;
+    return r;
+  }
+};
+function mergeSort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+  const mid = Math.floor(arr.length / 2);
+  const leftArr = arr.slice(0, mid);
+  const rightArr = arr.slice(mid);
+  return merge(mergeSort(leftArr), mergeSort(rightArr));
+}
+function merge(leftArr, rightArr) {
+  const sortedArr = [];
+  while (leftArr.length && rightArr.length) {
+    if (leftArr[0] < rightArr[0]) {
+      sortedArr.push(leftArr.shift());
+    } else {
+      sortedArr.push(rightArr.shift());
+    }
+  }
+  return [...sortedArr, ...leftArr, ...rightArr];
+}
+// const jjj = [7, 3, 2, 16, 24, 4, 11];
+// const lll = mergeSort(jjj);
+// console.log(lll);
+// Runtime: 203 ms, faster than 28.50% of JavaScript online submissions for Median of Two Sorted Arrays.
+// Memory Usage: 50.8 MB, less than 15.76% of JavaScript online submissions for Median of Two Sorted Arrays.
+
+//4//////////////////////////////////////////
