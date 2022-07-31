@@ -210,3 +210,8 @@ function merge(leftArr, rightArr) {
 // Memory Usage: 50.8 MB, less than 15.76% of JavaScript online submissions for Median of Two Sorted Arrays.
 
 //4//////////////////////////////////////////
+function lengthOfLongestSubstring(s) {
+  return s;
+}
+
+console.log(lengthOfLongestSubstring("asdasddd"));
