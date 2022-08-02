@@ -210,8 +210,103 @@ function merge(leftArr, rightArr) {
 // Memory Usage: 50.8 MB, less than 15.76% of JavaScript online submissions for Median of Two Sorted Arrays.
 
 //4//////////////////////////////////////////
+//Given a string s, find the length of the longest substring without repeating characters.
+//Input: s = "abcabcbb"
+// Output: 3
+// Input: s = "bbbbb";
+// Output: 1;
+// Input: s = "pwwkew";
+// Output: 3;
+// var start = performance.now();
+// console.time("loop");
 function lengthOfLongestSubstring(s) {
-  return s;
-}
+  // if (s.length === 0) {
+  //   return false;
+  // }
+  const sArr = Array.from(s);
+  let subArray = [];
+  let sub = "";
+  function ddd(sArr) {
+    for (let i = 0; i < sArr.length; i++) {
+      if (sub.length > 0) {
+        for (const x of sub) {
+          if (sArr[i] === x) {
+            subArray.push(sub);
+            sub = "";
+            sArr.shift();
+            return ddd(sArr);
+          }
+        }
+      }
 
-console.log(lengthOfLongestSubstring("asdasddd"));
+      sub += sArr[i];
+    }
+  }
+  ddd(sArr);
+  subArray.push(sub);
+  let numArr = [];
+  for (let i = 0; i < subArray.length; i++) {
+    numArr.push(subArray[i].length);
+  }
+  numArr.sort((a, b) => a - b);
+  return numArr[numArr.length - 1];
+  // const sorted = mergeSort(numArr);
+  // return sorted[sorted.length - 1];
+}
+// console.timeEnd("loop");
+// var duration = performance.now() - start;
+// console.log(duration);
+// console.log(lengthOfLongestSubstring("alqebriavxoo"));
+
+// Runtime: 3665 ms, faster than 5.01% of JavaScript online submissions for Longest Substring Without Repeating Characters.
+// Memory Usage: 66.3 MB, less than 7.33% of JavaScript online submissions for Longest Substring Without Repeating Characters.
+
+// var start = performance.now();
+// for (let index = 0; index < 1000; index++) {
+//   console.log(index);
+// }
+// var duration = performance.now() - start;
+// console.log(duration);
+
+// console.time("loop");
+// for (let index = 0; index < 10; index++) {
+//   console.log(index);
+// }
+// console.timeEnd("loop");
+
+//5///////////////////////////////////////////////
+// Longest Palindromic Substring
+function palindromic(s) {
+  if (s.length <= 1) return s;
+  let prev = "";
+  let curr = "";
+  for (let i = 0; i < s.length; i++) {
+    let j = 0;
+    while (s[i - j] === s[i + j]) {
+      curr = s.slice(i - j, i + j + 1);
+      j++;
+    }
+    while (s[i] === s[i + j]) {
+      curr = s.slice(i, i + j + 1);
+      j++;
+    }
+
+    if (curr.length > prev.length) {
+      prev = curr;
+    }
+  }
+  return prev;
+}
+// const ppp = "babad";
+// const i = 4;
+// const j = 3;
+// console.log(ppp.slice(i - j, i + j + 1));
+// const i = 1;
+// const j = 1;
+// console.log(ppp.slice(i - j, i + j + 1));
+console.log(palindromic("sabad"));
+console.log(palindromic("sabalopppold"));
+console.log(palindromic("ralimlalmilarokaiakod"));
+console.log(palindromic("cbbd"));
+console.log(palindromic("cccbbbd"));
+console.log(palindromic("d"));
