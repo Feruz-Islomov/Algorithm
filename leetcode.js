@@ -281,7 +281,7 @@ function palindromic(s) {
   let prev = "";
   let curr = "";
   for (let i = 0; i < s.length; i++) {
-    let j = 0;
+    let j = 1;
     while (s[i - j] === s[i + j]) {
       curr = s.slice(i - j, i + j + 1);
       j++;
@@ -290,10 +290,10 @@ function palindromic(s) {
       curr = s.slice(i, i + j + 1);
       j++;
     }
-
-    if (curr.length > prev.length) {
-      prev = curr;
-    }
+    curr.length > prev.length ? (prev = curr) : null;
+    // if (curr.length > prev.length) {
+    //   prev = curr;
+    // }
   }
   return prev;
 }
@@ -304,9 +304,30 @@ function palindromic(s) {
 // const i = 1;
 // const j = 1;
 // console.log(ppp.slice(i - j, i + j + 1));
-console.log(palindromic("sabad"));
-console.log(palindromic("sabalopppold"));
-console.log(palindromic("ralimlalmilarokaiakod"));
-console.log(palindromic("cbbd"));
-console.log(palindromic("cccbbbd"));
-console.log(palindromic("d"));
+// console.log(palindromic("sabad"));
+// console.log(palindromic("sabalopppold"));
+// console.log(palindromic("ralimlalmilarokaiakod"));
+// console.log(palindromic("cbbd"));
+// console.log(palindromic("cccbbbd"));
+// console.log(palindromic("d"));
+
+//11/////////////////////////////
+var maxArea = function (h) {
+  let max = 0;
+  let curr = 0;
+  for (let i = 0; i < h.length; i++) {
+    for (let j = 0; j < h.length; j++) {
+      if (h[i] <= h[j] && i !== j) {
+        curr = Math.abs(h[i] * (i - j));
+        if (max < curr) {
+          max = curr;
+        }
+      }
+    }
+  }
+  return max;
+};
+const height = [1, 8, 6, 2, 5, 4, 8, 3, 7]; //49 [1,8,6,2,5,4,8,3,7]
+console.log(maxArea(height));
+console.log(maxArea([1, 1]));
+console.log(maxArea([1, 2]));
