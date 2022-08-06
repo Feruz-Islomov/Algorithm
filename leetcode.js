@@ -1,4 +1,4 @@
-//1/////////////////////////////////////////////////
+//1 easy//////////////////////////////////////////
 function twoSum(nums, target) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < nums.length; j++) {
@@ -46,7 +46,7 @@ function twoSum2(nums, target) {
 //      return [i, x.indexOf(e)];
 //    }
 //  }
-//2////////////////////////////////////
+//2 medium////////////////////////////////////
 
 // function addArray(l1, l2) {
 //   function reverse(arr) {
@@ -126,7 +126,7 @@ var addTwoNumbers = function (l1, l2) {
 // result = [7, 0, 8];
 // console.log(addTwoNumbers(l1, l2));
 
-//3////////////////////////////////////
+//3 hard////////////////////////////////////
 function median(x, y) {
   const q = x.concat(y);
 
@@ -209,7 +209,7 @@ function merge(leftArr, rightArr) {
 // Runtime: 203 ms, faster than 28.50% of JavaScript online submissions for Median of Two Sorted Arrays.
 // Memory Usage: 50.8 MB, less than 15.76% of JavaScript online submissions for Median of Two Sorted Arrays.
 
-//4//////////////////////////////////////////
+//4 medium//////////////////////////////////////////
 //Given a string s, find the length of the longest substring without repeating characters.
 //Input: s = "abcabcbb"
 // Output: 3
@@ -274,7 +274,7 @@ function lengthOfLongestSubstring(s) {
 // }
 // console.timeEnd("loop");
 
-//5///////////////////////////////////////////////
+//5 medium///////////////////////////////////////////////
 // Longest Palindromic Substring
 function palindromic(s) {
   if (s.length <= 1) return s;
@@ -311,7 +311,7 @@ function palindromic(s) {
 // console.log(palindromic("cccbbbd"));
 // console.log(palindromic("d"));
 
-//11/////////////////////////////
+//11 medium/////////////////////////////
 var maxArea = function (h) {
   let max = 0;
   let curr = 0;
@@ -327,7 +327,41 @@ var maxArea = function (h) {
   }
   return max;
 };
-const height = [1, 8, 6, 2, 5, 4, 8, 3, 7]; //49 [1,8,6,2,5,4,8,3,7]
-console.log(maxArea(height));
-console.log(maxArea([1, 1]));
-console.log(maxArea([1, 2]));
+// const height = [1, 8, 6, 2, 5, 4, 8, 3, 7]; //49 [1,8,6,2,5,4,8,3,7]
+// console.log(maxArea(height));
+// console.log(maxArea([1, 1]));
+// console.log(maxArea([1, 2]));
+
+//6 medium ZIGZAG///////////////////////////
+function zigzag(s, numRows) {
+  const str = s;
+  let rowArr = []; //'', '', ''
+  rowArr[0] = 1;
+  for (let i = 0; i < numRows; i++) {
+    rowArr[i] = "";
+  }
+  let j = 0;
+  let k = 0;
+  rrrrr(j, k, str, rowArr);
+  return rowArr;
+}
+const rrrrr = (j, k, s, rowArr) => {
+  if (k === s.length - 1) {
+    return null;
+  }
+  while (j <= rowArr.length - 1) {
+    rowArr[j] += s[k];
+    j++;
+    k++;
+  }
+  j = j - 2;
+
+  while (j > 0) {
+    rowArr[j] += s[k];
+    j--;
+    k++;
+  }
+  return rrrrr();
+};
+const zigzagresult = zigzag("PAYPALISHIRING", 4);
+console.log(zigzagresult);
