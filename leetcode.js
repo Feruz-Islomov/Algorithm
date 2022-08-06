@@ -334,34 +334,50 @@ var maxArea = function (h) {
 
 //6 medium ZIGZAG///////////////////////////
 function zigzag(s, numRows) {
-  const str = s;
+  if (numRows === 1) {
+    return s;
+  }
   let rowArr = []; //'', '', ''
-  rowArr[0] = 1;
   for (let i = 0; i < numRows; i++) {
     rowArr[i] = "";
   }
+  // const l = s.length;
   let j = 0;
   let k = 0;
-  rrrrr(j, k, str, rowArr);
-  return rowArr;
-}
-const rrrrr = (j, k, s, rowArr) => {
-  if (k === s.length - 1) {
-    return null;
-  }
-  while (j <= rowArr.length - 1) {
-    rowArr[j] += s[k];
-    j++;
-    k++;
-  }
-  j = j - 2;
 
-  while (j > 0) {
-    rowArr[j] += s[k];
-    j--;
-    k++;
+  function rec() {
+    // if (k >= s.length) {
+    //   return null;
+    // }
+    while (j <= numRows - 1) {
+      rowArr[j] += s[k];
+      j++;
+      k++;
+      if (k >= s.length) {
+        return null;
+      }
+    }
+    j = j - 2;
+    while (j > 0) {
+      rowArr[j] += s[k];
+      j--;
+      k++;
+      if (k >= s.length) {
+        return null;
+      }
+    }
+    return rec();
   }
-  return rrrrr();
-};
-const zigzagresult = zigzag("PAYPALISHIRING", 4);
-console.log(zigzagresult);
+  rec();
+
+  return rowArr.join("");
+}
+
+// const z = zigzag("A", 1);
+// const z2 = zigzag("PAYPALISHIRING", 3);
+// const z3 = zigzag("AB", 1);
+// console.log(z);
+// console.log(z2);
+// console.log(z3); // "AB"
+// Runtime: 105 ms, faster than 79.73% of JavaScript online submissions for Zigzag Conversion.
+// Memory Usage: 47.9 MB, less than 44.23% of JavaScript online submissions for Zigzag Conversion.
