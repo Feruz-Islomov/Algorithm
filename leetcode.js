@@ -390,3 +390,22 @@ function zigzag(s, numRows) {
 //     x[i] === x[x.length - 1];
 //   }
 // }
+function isPalindrome(x) {
+  if (x < 0) {
+    return false;
+  }
+  const n = x.toString();
+  const m = (1 + n.length) / 2;
+  for (let i = 0; i < m - 1; i++) {
+    if (n[i] !== n[n.length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(isPalindrome(11));
+console.log(isPalindrome(1215121));
+// console.log(isPalindrome(-121));
+// console.log(isPalindrome(10));
+// Runtime: 223 ms, faster than 79.19% of JavaScript online submissions for Palindrome Number.
+// Memory Usage: 50.6 MB, less than 83.40% of JavaScript online submissions for Palindrome Number.
