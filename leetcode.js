@@ -381,3 +381,12 @@ function zigzag(s, numRows) {
 // console.log(z3); // "AB"
 // Runtime: 105 ms, faster than 79.73% of JavaScript online submissions for Zigzag Conversion.
 // Memory Usage: 47.9 MB, less than 44.23% of JavaScript online submissions for Zigzag Conversion.
+
+// function isPalindrome(n) {
+//   // if(n is negative)
+//   const x = n.toString();
+//   for (let i = 0; i < n; i++) {
+//     for (let j = 0; j < n; j++) {}
+//     x[i] === x[x.length - 1];
+//   }
+// }
