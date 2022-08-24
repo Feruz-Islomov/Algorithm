@@ -403,9 +403,31 @@ function isPalindrome(x) {
   }
   return true;
 }
-console.log(isPalindrome(11));
-console.log(isPalindrome(1215121));
+// console.log(isPalindrome(11));
+// console.log(isPalindrome(1215121));
 // console.log(isPalindrome(-121));
 // console.log(isPalindrome(10));
 // Runtime: 223 ms, faster than 79.19% of JavaScript online submissions for Palindrome Number.
 // Memory Usage: 50.6 MB, less than 83.40% of JavaScript online submissions for Palindrome Number.
+
+function RomanToInteger(r) {
+  const rl = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+  const sl = { IV: 4, IX: 9, XL: 40, XC: 90, CD: 400, CM: 900 };
+  // let MCMXCIV = rlist["M"] + slist["CM"] + slist["XC"] + slist["IV"];
+  let x = 0;
+  for (let i = 0; i < r.length; i++) {
+    if (sl[`${r[i] + r[i + 1]}`]) {
+      x += sl[`${r[i] + r[i + 1]}`];
+      i += 1;
+    } else {
+      x += rl[`${r[i]}`];
+    }
+  }
+  return x;
+}
+
+// console.log(RomanToInteger("III"));
+// console.log(RomanToInteger("LVIII"));
+// console.log(RomanToInteger("MCMXCIV"));
+// Runtime: 234 ms, faster than 29.44% of JavaScript online submissions for Roman to Integer.
+// Memory Usage: 48.3 MB, less than 31.06% of JavaScript online submissions for Roman to Integer.
