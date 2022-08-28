@@ -431,3 +431,34 @@ function RomanToInteger(r) {
 // console.log(RomanToInteger("MCMXCIV"));
 // Runtime: 234 ms, faster than 29.44% of JavaScript online submissions for Roman to Integer.
 // Memory Usage: 48.3 MB, less than 31.06% of JavaScript online submissions for Roman to Integer.
+
+function reverseNumber(x) {
+  if (x < 0) {
+    Math.abs(x);
+    const m = f(x);
+    if (-m < -Math.pow(2, 31)) {
+      return 0;
+    }
+    return -m;
+  }
+  const y = f(x);
+  if (y > Math.pow(2, 31) - 1) {
+    return 0;
+  }
+  return y;
+}
+function f(x) {
+  const s = x.toString();
+  let n = "";
+  for (let i = s.length - 1; i >= 0; i--) {
+    n += s[i];
+  }
+  return parseInt(n);
+}
+// console.log(reverseNumber(123)); //321
+// console.log(reverseNumber(-123)); //-321
+// console.log(reverseNumber(2147483648)); //21
+// console.log(Math.pow(2, 31));
+
+// Runtime: 82 ms, faster than 86.92% of JavaScript online submissions for Reverse Integer.
+// Memory Usage: 44.4 MB, less than 17.71% of JavaScript online submissions for Reverse Integer.
