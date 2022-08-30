@@ -382,14 +382,7 @@ function zigzag(s, numRows) {
 // Runtime: 105 ms, faster than 79.73% of JavaScript online submissions for Zigzag Conversion.
 // Memory Usage: 47.9 MB, less than 44.23% of JavaScript online submissions for Zigzag Conversion.
 
-// function isPalindrome(n) {
-//   // if(n is negative)
-//   const x = n.toString();
-//   for (let i = 0; i < n; i++) {
-//     for (let j = 0; j < n; j++) {}
-//     x[i] === x[x.length - 1];
-//   }
-// }
+//7
 function isPalindrome(x) {
   if (x < 0) {
     return false;
@@ -409,7 +402,7 @@ function isPalindrome(x) {
 // console.log(isPalindrome(10));
 // Runtime: 223 ms, faster than 79.19% of JavaScript online submissions for Palindrome Number.
 // Memory Usage: 50.6 MB, less than 83.40% of JavaScript online submissions for Palindrome Number.
-
+//8
 function RomanToInteger(r) {
   const rl = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
   const sl = { IV: 4, IX: 9, XL: 40, XC: 90, CD: 400, CM: 900 };
@@ -431,7 +424,7 @@ function RomanToInteger(r) {
 // console.log(RomanToInteger("MCMXCIV"));
 // Runtime: 234 ms, faster than 29.44% of JavaScript online submissions for Roman to Integer.
 // Memory Usage: 48.3 MB, less than 31.06% of JavaScript online submissions for Roman to Integer.
-
+//9
 function reverseNumber(x) {
   if (x < 0) {
     Math.abs(x);
@@ -462,3 +455,60 @@ function f(x) {
 
 // Runtime: 82 ms, faster than 86.92% of JavaScript online submissions for Reverse Integer.
 // Memory Usage: 44.4 MB, less than 17.71% of JavaScript online submissions for Reverse Integer.
+
+//10
+function strToIntAtoi(s) {
+  const x = parseInt(s);
+  if (!x) {
+    // let n = "";
+    // for (let i = 0; i < s.length; i++) {
+    //   if (parseInt(s[i])) {
+    //     n += s[i];
+    //   }
+    // }
+    // return parseInt(n);
+
+    return 0;
+  }
+  const t = Math.pow(2, 31);
+  if (x < -t || x >= t) {
+    if (x < 0) {
+      return -t;
+    }
+    return t - 1;
+  }
+  return x;
+}
+
+console.log(strToIntAtoi("42")); //42
+console.log(strToIntAtoi("      -42")); //-42
+console.log(strToIntAtoi("4193 with words")); // 4193
+console.log(strToIntAtoi("with words 4193")); // 0
+console.log(strToIntAtoi("-91283472332")); // -Math.pow(2,31)
+console.log(strToIntAtoi("21474836460")); // Math.pow(2,31) - 1
+console.log(strToIntAtoi("2147483648")); // -Math.pow(2,31) - 1
+
+// Runtime: 95 ms, faster than 77.51% of JavaScript online submissions for String to Integer (atoi).
+// Memory Usage: 43.4 MB, less than 95.49% of JavaScript online submissions for String to Integer (atoi).
+
+//11
+// Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+// '.' Matches any single character.​​​​
+// '*' Matches zero or more of the preceding element.
+// The matching should cover the entire input string (not partial).
+function RegularExressionMatching(s, p) {}
+// Input: s = "aa", p = "a"
+// Output: false
+// Explanation: "a" does not match the entire string "aa".
+// Input: s = "aa", p = "a*"
+// Output: true
+// Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
+// Input: s = "ab", p = ".*"
+// Output: true
+// Explanation: ".*" means "zero or more (*) of any character (.)".
+// Constraints
+//  1 <= s.length <= 20
+// 1 <= p.length <= 30
+// s contains only lowercase English letters.
+// p contains only lowercase English letters, '.', and '*'.
+// It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
