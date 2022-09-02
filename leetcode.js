@@ -425,6 +425,18 @@ function RomanToInteger(r) {
 // Runtime: 234 ms, faster than 29.44% of JavaScript online submissions for Roman to Integer.
 // Memory Usage: 48.3 MB, less than 31.06% of JavaScript online submissions for Roman to Integer.
 //9
+function integerToRoman(r) {
+  const rl = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+  const sl = { IV: 4, IX: 9, XL: 40, XC: 90, CD: 400, CM: 900 };
+  // let MCMXCIV = rlist["M"] + slist["CM"] + slist["XC"] + slist["IV"];
+
+  return r;
+}
+// console.log(integerToRoman(3));
+// console.log(integerToRoman(58));
+// console.log(integerToRoman(1994));
+
+//10
 function reverseNumber(x) {
   if (x < 0) {
     Math.abs(x);
@@ -456,7 +468,7 @@ function f(x) {
 // Runtime: 82 ms, faster than 86.92% of JavaScript online submissions for Reverse Integer.
 // Memory Usage: 44.4 MB, less than 17.71% of JavaScript online submissions for Reverse Integer.
 
-//10
+//11
 function strToIntAtoi(s) {
   const x = parseInt(s);
   if (!x) {
@@ -480,18 +492,18 @@ function strToIntAtoi(s) {
   return x;
 }
 
-console.log(strToIntAtoi("42")); //42
-console.log(strToIntAtoi("      -42")); //-42
-console.log(strToIntAtoi("4193 with words")); // 4193
-console.log(strToIntAtoi("with words 4193")); // 0
-console.log(strToIntAtoi("-91283472332")); // -Math.pow(2,31)
-console.log(strToIntAtoi("21474836460")); // Math.pow(2,31) - 1
-console.log(strToIntAtoi("2147483648")); // -Math.pow(2,31) - 1
+// console.log(strToIntAtoi("42")); //42
+// console.log(strToIntAtoi("      -42")); //-42
+// console.log(strToIntAtoi("4193 with words")); // 4193
+// console.log(strToIntAtoi("with words 4193")); // 0
+// console.log(strToIntAtoi("-91283472332")); // -Math.pow(2,31)
+// console.log(strToIntAtoi("21474836460")); // Math.pow(2,31) - 1
+// console.log(strToIntAtoi("2147483648")); // -Math.pow(2,31) - 1
 
 // Runtime: 95 ms, faster than 77.51% of JavaScript online submissions for String to Integer (atoi).
 // Memory Usage: 43.4 MB, less than 95.49% of JavaScript online submissions for String to Integer (atoi).
 
-//11
+//12
 // Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
 // '.' Matches any single character.​​​​
 // '*' Matches zero or more of the preceding element.
@@ -512,3 +524,26 @@ function RegularExressionMatching(s, p) {}
 // s contains only lowercase English letters.
 // p contains only lowercase English letters, '.', and '*'.
 // It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
+
+//13
+function longCommonPrefix(s) {
+  let l = [];
+  let o = "";
+  let p = s.shift();
+  for (let i = 0; i < s.length; i++) {
+    for (let j = 0; j < s[i].length; j++) {
+      if (p[j] === s[i][j]) {
+        o += s[i][j];
+      }
+    }
+    l.push(o);
+    o = "";
+  }
+  return l;
+}
+const t = ["floiwer", "floiw", "floight", "floight"];
+const t1 = ["dog", "racecar", "car"];
+const t2 = ["cir", "car"];
+console.log(longCommonPrefix(t));
+console.log(longCommonPrefix(t1)); // ""
+console.log(longCommonPrefix(t2));
