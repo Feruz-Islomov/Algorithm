@@ -526,24 +526,10 @@ function RegularExressionMatching(s, p) {}
 // It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
 
 //13
-function longCommonPrefix(s) {
-  let l = [];
-  let o = "";
-  let p = s.shift();
-  for (let i = 0; i < s.length; i++) {
-    for (let j = 0; j < s[i].length; j++) {
-      if (p[j] === s[i][j]) {
-        o += s[i][j];
-      }
-    }
-    l.push(o);
-    o = "";
-  }
-  return l;
-}
+function longCommonPrefix(s) {}
 const t = ["floiwer", "floiw", "floight", "floight"];
 const t1 = ["dog", "racecar", "car"];
-const t2 = ["cir", "car"];
+const t2 = ["cau", "car", "cpr"];
 console.log(longCommonPrefix(t));
 console.log(longCommonPrefix(t1)); // ""
 console.log(longCommonPrefix(t2));
